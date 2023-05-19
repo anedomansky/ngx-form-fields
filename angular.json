@@ -7,7 +7,12 @@
       "projectType": "library",
       "root": "projects/anedomansky/ngx-form-group",
       "sourceRoot": "projects/anedomansky/ngx-form-group/src",
-      "prefix": "lib",
+      "prefix": "ngx-form-group",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -25,13 +30,10 @@
           "defaultConfiguration": "production"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-devkit/build-angular:jest",
           "options": {
             "tsConfig": "projects/anedomansky/ngx-form-group/tsconfig.spec.json",
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ]
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
@@ -55,23 +57,19 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "outputPath": "dist/ngx-form-group-test-app",
             "index": "projects/ngx-form-group-test-app/src/index.html",
             "main": "projects/ngx-form-group-test-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/ngx-form-group-test-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/ngx-form-group-test-app/src/favicon.ico",
               "projects/ngx-form-group-test-app/src/assets"
             ],
-            "styles": [
-              "projects/ngx-form-group-test-app/src/styles.scss"
-            ],
+            "styles": ["projects/ngx-form-group-test-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -120,22 +118,10 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-devkit/build-angular:jest",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "projects/ngx-form-group-test-app/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/ngx-form-group-test-app/src/favicon.ico",
-              "projects/ngx-form-group-test-app/src/assets"
-            ],
-            "styles": [
-              "projects/ngx-form-group-test-app/src/styles.scss"
-            ],
-            "scripts": []
+            "tsConfig": "tsconfig.spec.json",
+            "polyfills": ["zone.js", "zone.js/testing"]
           }
         }
       }
