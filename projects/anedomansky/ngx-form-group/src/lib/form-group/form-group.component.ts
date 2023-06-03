@@ -17,4 +17,7 @@ export class FormGroupComponent {
   @Input({ required: true }) form: FormGroup | FormArray;
 
   @Input() fields: FieldConfig[] = [];
+
+  // TODO: figure out how to fill the FormGroup with all needed FormControls
+  // TODO: use the created FormControl as @Input() for the form-field component
 }
