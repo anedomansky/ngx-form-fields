@@ -6,7 +6,7 @@ module.exports = {
     "@angular-eslint/component-selector": [
       "error",
       {
-        prefix: "ngx-form-group",
+        prefix: "ngx",
         style: "kebab-case",
         type: "element",
       },
@@ -14,7 +14,7 @@ module.exports = {
     "@angular-eslint/directive-selector": [
       "error",
       {
-        prefix: "ngx-form-group",
+        prefix: "ngx",
         style: "camelCase",
         type: "attribute",
       },

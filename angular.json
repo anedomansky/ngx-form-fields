@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/anedomansky/ngx-form-group",
       "sourceRoot": "projects/anedomansky/ngx-form-group/src",
-      "prefix": "ngx-form-group",
+      "prefix": "ngx",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
