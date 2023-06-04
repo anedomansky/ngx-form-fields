@@ -1,4 +1,4 @@
 <label>
   {{ label }}
-  <input type="text" />
+  <input type="text" [formControl]="$any(ngControl.control)" />
 </label>

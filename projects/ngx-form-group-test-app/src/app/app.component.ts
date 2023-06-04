@@ -1,5 +1,5 @@
 import { FieldConfig, FormGroupComponent } from '@anedomansky/ngx-form-group';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   form = new FormGroup({});
 
   fields: FieldConfig[] = [
@@ -17,16 +17,21 @@ export class AppComponent {
       name: 'first',
       type: 'text',
       label: 'First',
+      defaultValue: 'test',
     },
-    {
-      name: 'second',
-      type: 'number',
-      label: 'Second',
-    },
-    {
-      name: 'third',
-      type: 'checkbox',
-      label: 'Third',
-    },
+    // {
+    //   name: 'second',
+    //   type: 'number',
+    //   label: 'Second',
+    // },
+    // {
+    //   name: 'third',
+    //   type: 'checkbox',
+    //   label: 'Third',
+    // },
   ];
+
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe((change) => console.log(change));
+  }
 }

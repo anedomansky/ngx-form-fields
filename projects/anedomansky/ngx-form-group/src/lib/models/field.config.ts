@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+
 interface FieldOptions {
   /**
    * Deactivates the input element.
@@ -40,4 +42,11 @@ export interface FieldConfig {
    * Set of input element options.
    */
   options?: FieldOptions;
+
+  /**
+   * Start value fpr the input element.
+   */
+  defaultValue?: unknown;
+
+  control?: FormControl<unknown>;
 }
