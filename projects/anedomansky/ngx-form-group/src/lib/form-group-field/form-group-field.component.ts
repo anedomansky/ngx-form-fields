@@ -1,11 +1,5 @@
 import { NgSwitch, NgSwitchCase } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  ViewChild,
-  ViewContainerRef,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 import { FieldConfig } from '../models/field.config';
@@ -33,7 +27,4 @@ export class FormGroupFieldComponent {
   control?: FormControl<unknown>;
 
   @Input({ required: true }) field: FieldConfig;
-
-  @ViewChild('content', { read: ViewContainerRef, static: true })
-  viewContainer: ViewContainerRef;
 }

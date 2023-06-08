@@ -8,30 +8,32 @@ interface FieldOptions {
   disabled?: boolean;
 
   /**
-   * Marks the input element as required.
-   * @default false
-   */
-  required?: boolean;
-
-  /**
    * Displays the input element as non-editable.
    * @default false
    */
   readonly?: boolean;
+
+  /**
+   * Marks the input element as required.
+   * @default false
+   */
+  required?: boolean;
 }
 
 type InputType = 'text' | 'number' | 'checkbox';
 
 export interface FieldConfig {
   /**
-   * Represents the FormControlName.
+   * The FormControl of the input element.
+   * @usage
+   * Used internally in order to bind the input element to the FormGroup.
    */
-  name: string;
+  control?: FormControl<unknown>;
 
   /**
-   * Specifies the type of the input element.
+   * Start value for the input element.
    */
-  type: InputType;
+  defaultValue?: unknown;
 
   /**
    * Label to display above the input element.
@@ -39,14 +41,22 @@ export interface FieldConfig {
   label: string;
 
   /**
+   * Represents the FormControlName.
+   */
+  name: string;
+
+  /**
    * Set of input element options.
    */
   options?: FieldOptions;
 
   /**
-   * Start value fpr the input element.
+   * Placeholder for the input element. Not available for input elements of type radio or checkbox.
    */
-  defaultValue?: unknown;
+  placeholder?: string;
 
-  control?: FormControl<unknown>;
+  /**
+   * Specifies the type of the input element.
+   */
+  type: InputType;
 }

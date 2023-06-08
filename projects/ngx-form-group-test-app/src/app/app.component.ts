@@ -17,21 +17,38 @@ export class AppComponent implements OnInit {
       name: 'first',
       type: 'text',
       label: 'First',
-      defaultValue: 'test',
+      placeholder: 'test',
+      options: {
+        disabled: false,
+      },
     },
-    // {
-    //   name: 'second',
-    //   type: 'number',
-    //   label: 'Second',
-    // },
-    // {
-    //   name: 'third',
-    //   type: 'checkbox',
-    //   label: 'Third',
-    // },
+    {
+      name: 'second',
+      type: 'number',
+      label: 'Second',
+    },
+    {
+      name: 'third',
+      type: 'checkbox',
+      label: 'Third',
+    },
   ];
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe((change) => console.log(change));
+    this.form.statusChanges.subscribe((status) => console.log(status));
+  }
+
+  toggleInputActivation(name: string, enable: boolean): void {
+    if (enable) {
+      this.form.get(name)?.enable();
+    } else {
+      this.form.get(name)?.disable();
+    }
+  }
+
+  onSubmit(event: FormDataEvent): void {
+    console.log(event);
+    console.log(this.form.value);
   }
 }

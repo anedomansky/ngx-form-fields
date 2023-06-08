@@ -1,4 +1,9 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
   <ngx-form-group [form]="form" [fields]="fields"></ngx-form-group>
   <button type="submit">Submit</button>
+  <button type="button" (click)="toggleInputActivation('first', false)">
+    Deactivate First (Text)</button
+  ><button type="button" (click)="toggleInputActivation('first', true)">
+    Activate First (Text)
+  </button>
 </form>

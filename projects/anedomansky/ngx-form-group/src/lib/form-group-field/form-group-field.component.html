@@ -1,8 +1,8 @@
-<ng-template #content></ng-template>
 <ng-container [ngSwitch]="field.type">
   <ngx-text-input
     *ngSwitchCase="'text'"
     [label]="field.label"
     [formControl]="$any(control)"
+    [placeholder]="field.placeholder"
   ></ngx-text-input>
 </ng-container>

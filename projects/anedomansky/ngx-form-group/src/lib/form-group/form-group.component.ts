@@ -39,5 +39,6 @@ export class FormGroupComponent implements OnInit {
     console.log(this.form);
 
     this.form.valueChanges.subscribe((change) => console.log(change));
+    this.form.statusChanges.subscribe((status) => console.log(status));
   }
 }
