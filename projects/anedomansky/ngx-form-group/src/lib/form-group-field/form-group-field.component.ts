@@ -1,6 +1,6 @@
 import { NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { FieldConfig } from '../models/field.config';
 import { CheckboxInputComponent } from './checkbox-input/checkbox-input.component';
@@ -23,8 +23,5 @@ import { TextInputComponent } from './text-input/text-input.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormGroupFieldComponent {
-  @Input()
-  control?: FormControl<unknown>;
-
   @Input({ required: true }) field: FieldConfig;
 }

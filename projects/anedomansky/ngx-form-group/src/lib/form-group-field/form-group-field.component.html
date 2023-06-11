@@ -2,7 +2,9 @@
   <ngx-text-input
     *ngSwitchCase="'text'"
     [label]="field.label"
-    [formControl]="$any(control)"
+    [formControl]="$any(field.control)"
     [placeholder]="field.placeholder"
+    [readonly]="field.options?.readonly ?? false"
+    [required]="field.options?.required ?? false"
   ></ngx-text-input>
 </ng-container>

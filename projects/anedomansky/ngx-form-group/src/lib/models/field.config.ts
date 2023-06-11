@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, ValidatorFn } from '@angular/forms';
 
 interface FieldOptions {
   /**
@@ -59,4 +59,6 @@ export interface FieldConfig {
    * Specifies the type of the input element.
    */
   type: InputType;
+
+  validators?: ValidatorFn | ValidatorFn[];
 }

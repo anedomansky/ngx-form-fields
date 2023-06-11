@@ -11,6 +11,7 @@ import {
   ControlValueAccessor,
   NgControl,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { noop } from 'rxjs';
 
@@ -23,6 +24,9 @@ import { noop } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent implements ControlValueAccessor, OnInit {
+  @Input()
+  disabled = false;
+
   /**
    * Label for the input element.
    */
@@ -30,10 +34,13 @@ export class TextInputComponent implements ControlValueAccessor, OnInit {
   label: string;
 
   @Input()
-  disabled = false;
+  placeholder?: string;
 
   @Input()
-  placeholder?: string;
+  readonly = false;
+
+  @Input()
+  required = false;
 
   @Output()
   blurEvent: EventEmitter<void> = new EventEmitter<void>();

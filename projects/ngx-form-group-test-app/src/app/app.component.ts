@@ -18,8 +18,11 @@ export class AppComponent implements OnInit {
       type: 'text',
       label: 'First',
       placeholder: 'test',
+      defaultValue: '',
       options: {
         disabled: false,
+        readonly: false,
+        required: true,
       },
     },
     {

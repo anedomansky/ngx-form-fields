@@ -6,5 +6,6 @@
     (input)="onChange($any($event.target).value)"
     (blur)="onTouched(); blurEvent.emit()"
     [placeholder]="placeholder"
+    [readonly]="readonly"
   />
 </label>

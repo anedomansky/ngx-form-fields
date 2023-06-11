@@ -5,7 +5,12 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 import { FormGroupFieldComponent } from '../form-group-field/form-group-field.component';
 import { FieldConfig } from '../models/field.config';
@@ -33,6 +38,12 @@ export class FormGroupComponent implements OnInit {
           disabled: field.options?.disabled,
         });
         field.control = control;
+
+        if (control?.validator && field.options?.required) {
+          control.setValidators([control.validator, Validators.required]);
+        } else if (!control?.validator && field.options?.required) {
+          control?.setValidators(Validators.required);
+        }
       }
       this.form.setControl(field.name, field.control);
     });
