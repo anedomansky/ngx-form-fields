@@ -17,18 +17,19 @@ export class AppComponent implements OnInit {
       name: 'first',
       type: 'text',
       label: 'First',
-      placeholder: 'test',
+      placeholder: 'text',
       defaultValue: '',
       options: {
         disabled: false,
         readonly: false,
-        required: true,
+        required: false,
       },
     },
     {
       name: 'second',
       type: 'number',
       label: 'Second',
+      placeholder: '0',
     },
     {
       name: 'third',
@@ -38,8 +39,10 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.form.valueChanges.subscribe((change) => console.log(change));
-    this.form.statusChanges.subscribe((status) => console.log(status));
+    this.form.valueChanges.subscribe((change) => console.log('change', change));
+    this.form.statusChanges.subscribe((status) =>
+      console.log('status', status)
+    );
   }
 
   toggleInputActivation(name: string, enable: boolean): void {

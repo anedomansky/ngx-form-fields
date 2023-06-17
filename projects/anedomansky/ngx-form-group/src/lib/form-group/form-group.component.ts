@@ -28,8 +28,8 @@ export class FormGroupComponent implements OnInit {
 
   @Input() fields: FieldConfig[] = [];
 
-  // TODO: figure out how to fill the FormGroup with all needed FormControls
-  // TODO: use the created FormControl as @Input() for the form-field component
+  // TODO: test ngModel behaviour (setDiabledState)
+  // TODO: add layout options (grid)
   ngOnInit(): void {
     this.fields.forEach((field) => {
       if (!field.control) {
@@ -39,10 +39,8 @@ export class FormGroupComponent implements OnInit {
         });
         field.control = control;
 
-        if (control?.validator && field.options?.required) {
-          control.setValidators([control.validator, Validators.required]);
-        } else if (!control?.validator && field.options?.required) {
-          control?.setValidators(Validators.required);
+        if (field.options?.required) {
+          control.addValidators(Validators.required);
         }
       }
       this.form.setControl(field.name, field.control);

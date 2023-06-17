@@ -5,15 +5,10 @@ import {
   Input,
   OnInit,
   Output,
-  Self,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  NgControl,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { noop } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { InputBaseDirective } from '../input-base/input-base.directive';
 
 @Component({
   selector: 'ngx-text-input',
@@ -23,54 +18,15 @@ import { noop } from 'rxjs';
   styleUrls: ['./text-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextInputComponent implements ControlValueAccessor, OnInit {
-  @Input()
-  disabled = false;
-
-  /**
-   * Label for the input element.
-   */
-  @Input({ required: true })
-  label: string;
-
+export class TextInputComponent extends InputBaseDirective implements OnInit {
   @Input()
   placeholder?: string;
 
   @Input()
-  readonly = false;
-
-  @Input()
-  required = false;
+  readonly?: boolean;
 
   @Output()
   blurEvent: EventEmitter<void> = new EventEmitter<void>();
-
-  onChange: (value: unknown) => void = noop;
-
-  onTouched: () => void = noop;
-
-  constructor(@Self() public ngControl: NgControl) {
-    ngControl.valueAccessor = this;
-  }
-
-  writeValue(value: unknown): void {
-    value && this.ngControl.control?.setValue(value);
-  }
-
-  registerOnChange(onChange: (value: unknown) => void): void {
-    this.onChange = onChange;
-  }
-
-  registerOnTouched(onTouched: () => void): void {
-    this.onTouched = onTouched;
-  }
-
-  setDisabledState(isDisabled: boolean): void {
-    // This seems to be optional - not necessary if used with this.form.get(controlName).disable()
-    // TODO: Test with ngModel
-    console.log(isDisabled);
-    this.disabled = isDisabled;
-  }
 
   ngOnInit(): void {
     console.log(this.ngControl);

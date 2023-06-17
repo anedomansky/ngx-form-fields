@@ -4,7 +4,21 @@
     [label]="field.label"
     [formControl]="$any(field.control)"
     [placeholder]="field.placeholder"
-    [readonly]="field.options?.readonly ?? false"
+    [readonly]="field.options?.readonly"
     [required]="field.options?.required ?? false"
   ></ngx-text-input>
+  <ngx-number-input
+    *ngSwitchCase="'number'"
+    [label]="field.label"
+    [formControl]="$any(field.control)"
+    [placeholder]="field.placeholder"
+    [readonly]="field.options?.readonly"
+    [required]="field.options?.required ?? false"
+  ></ngx-number-input>
+  <ngx-checkbox-input
+    *ngSwitchCase="'checkbox'"
+    [label]="field.label"
+    [formControl]="$any(field.control)"
+    [required]="field.options?.required ?? false"
+  ></ngx-checkbox-input>
 </ng-container>
