@@ -32,8 +32,6 @@ export class FormGroupComponent implements OnInit {
   @Input()
   options?: Options;
 
-  // TODO: test ngModel behaviour (setDiabledState)
-  // TODO: add layout options (grid)
   ngOnInit(): void {
     this.fields.forEach((field) => {
       if (!field.control) {

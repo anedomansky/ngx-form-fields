@@ -4,9 +4,6 @@ import { noop } from 'rxjs';
 
 @Directive()
 export class InputBaseDirective implements ControlValueAccessor {
-  @Input()
-  disabled = false;
-
   /**
    * Label for the input element.
    */
@@ -36,10 +33,7 @@ export class InputBaseDirective implements ControlValueAccessor {
     this.onTouched = onTouched;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    // This seems to be optional - not necessary if used with this.form.get(controlName).disable()
-    // TODO: Test with ngModel
-    console.log(isDisabled);
-    this.disabled = isDisabled;
+  setDisabledState(): void {
+    return;
   }
 }
