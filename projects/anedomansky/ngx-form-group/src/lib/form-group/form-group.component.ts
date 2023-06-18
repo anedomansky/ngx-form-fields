@@ -14,6 +14,7 @@ import {
 
 import { FormGroupFieldComponent } from '../form-group-field/form-group-field.component';
 import { FieldConfig } from '../models/field.config';
+import { Options } from '../models/options.model';
 
 @Component({
   selector: 'ngx-form-group',
@@ -27,6 +28,9 @@ export class FormGroupComponent implements OnInit {
   @Input({ required: true }) form: FormGroup;
 
   @Input() fields: FieldConfig[] = [];
+
+  @Input()
+  options?: Options;
 
   // TODO: test ngModel behaviour (setDiabledState)
   // TODO: add layout options (grid)

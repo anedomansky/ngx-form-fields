@@ -4,3 +4,4 @@
 
 export * from './lib/form-group/form-group.component';
 export * from './lib/models/field.config';
+export * from './lib/models/options.model';

@@ -1,4 +1,8 @@
-import { FieldConfig, FormGroupComponent } from '@anedomansky/ngx-form-group';
+import {
+  FieldConfig,
+  FormGroupComponent,
+  Options,
+} from '@anedomansky/ngx-form-group';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -37,6 +41,12 @@ export class AppComponent implements OnInit {
       label: 'Third',
     },
   ];
+
+  options: Options = {
+    layout: {
+      columns: 2,
+    },
+  };
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe((change) => console.log('change', change));

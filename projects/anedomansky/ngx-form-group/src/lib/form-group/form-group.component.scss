@@ -1,0 +1,11 @@
+.form-group {
+  &.grid {
+    display: grid;
+  }
+
+  @for $i from 1 through 4 {
+    &.grid-columns--#{$i} {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+  }
+}
