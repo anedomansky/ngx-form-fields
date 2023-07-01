@@ -34,11 +34,13 @@ export class AppComponent implements OnInit {
       type: 'number',
       label: 'Second',
       placeholder: '0',
+      defaultValue: 0,
     },
     {
       name: 'third',
       type: 'checkbox',
       label: 'Third',
+      defaultValue: true,
     },
   ];
 

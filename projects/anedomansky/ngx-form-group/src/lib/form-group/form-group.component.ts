@@ -32,13 +32,17 @@ export class FormGroupComponent implements OnInit {
   @Input()
   options?: Options;
 
+  // TODO: ability to add custom validatorse
   ngOnInit(): void {
     this.fields.forEach((field) => {
       if (!field.control) {
-        const control = new FormControl({
-          value: field.defaultValue,
-          disabled: field.options?.disabled,
-        });
+        const control = new FormControl(
+          {
+            value: field.defaultValue,
+            disabled: field.options?.disabled,
+          },
+          { nonNullable: true }
+        );
         field.control = control;
 
         if (field.options?.required) {
