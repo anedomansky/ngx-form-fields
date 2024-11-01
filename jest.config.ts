@@ -1,0 +1,43 @@
+import { Config } from 'jest';
+import ngPreset from 'jest-preset-angular/presets';
+
+const jestConfig: Config = {
+  ...ngPreset.defaultsESM,
+  setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
+  testPathIgnorePatterns: ['/node_modules/'],
+  testEnvironment: 'jest-environment-jsdom',
+  coverageDirectory: 'jest-reports/',
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 90,
+      lines: 80,
+    },
+  },
+  coveragePathIgnorePatterns: ['/node_modules/', '/dist/', '.html'],
+  reporters: ['default'],
+  roots: ['<rootDir>/projects'],
+  moduleNameMapper: {
+    '^rxjs(/operators$)?$':
+      '<rootDir>/node_modules/rxjs/dist/bundles/rxjs.umd.js',
+    '^flat$': '<rootDir>/node_modules/flat/index.js',
+    '^@anedomansky/ngx-form-group': '<rootDir>/dist/anedomansky/ngx-form-group/fesm2022/anedomansky-ngx-form-group.mjs',
+  },
+  transform: {
+    '^.+\\.(ts|js|html|svg)$': [
+      'jest-preset-angular',
+      {
+        tsconfig: '<rootDir>/tsconfig.spec.json',
+        stringifyContentPathRegex: '\\.(html|svg)$',
+        useESM: true,
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'html', 'js', 'json', 'mjs'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(tslib|.*\\.mjs))',
+    'dist/(?!(.*.mjs))',
+  ],
+};
+
+export default jestConfig;

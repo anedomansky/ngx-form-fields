@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jest"
+    ]
+  },
+  "include": [
+    "setup-jest.ts",
+    "projects/**/*.spec.ts",
+    "projects/**/*.d.ts"
+  ]
+}

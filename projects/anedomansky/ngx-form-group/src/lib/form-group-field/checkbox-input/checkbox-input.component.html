@@ -1,9 +1,0 @@
-<label>
-  {{ label }}
-  <input
-    type="checkbox"
-    [formControl]="$any(ngControl.control)"
-    (change)="onChange($any($event.target).checked)"
-    (blur)="onTouched(); blurEvent.emit()"
-  />
-</label>

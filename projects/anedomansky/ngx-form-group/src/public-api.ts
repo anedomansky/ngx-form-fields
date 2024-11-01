@@ -1,7 +1,6 @@
-/*
- * Public API Surface of ngx-form-group
- */
-
-export * from './lib/form-group/form-group.component';
-export * from './lib/models/field.config';
-export * from './lib/models/options.model';
+export * from './lib/config/ngx-form-group-config';
+export * from './lib/core/services/sample/sample.config';
+export * from './lib/core/services/sample/sample.service';
+export * from './lib/sample/sample.component';
+export * from './lib/sample/sample.routes';
+export * from './lib/ngx-form-group.module';

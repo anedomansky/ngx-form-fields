@@ -1,0 +1,45 @@
+{
+  "folders": [
+    {
+      "name": "ROOT",
+      "path": "../"
+    },
+    {
+      "name": "ngx-form-group",
+      "path": "../projects/anedomansky/ngx-form-group"
+    },
+    {
+      "name": "test-app",
+      "path": "../projects/test-app"
+    }
+  ],
+  "settings": {
+    "stylelint.validate": [
+      "css",
+      "scss"
+    ],
+    "npm.packageManager": "npm",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "search.exclude": {
+      "**/node_modules/**": true,
+      "**/target/**": true,
+      "**/dist/**": true,
+      "**/coverage/**": true
+    }
+  }
+}

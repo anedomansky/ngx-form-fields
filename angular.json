@@ -1,18 +1,24 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "@anedomansky/ngx-form-group": {
-      "projectType": "library",
       "root": "projects/anedomansky/ngx-form-group",
       "sourceRoot": "projects/anedomansky/ngx-form-group/src",
-      "prefix": "ngx",
+      "prefix": "lib",
+      "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "standalone": true,
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "standalone": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true
         }
       },
       "architect": {
@@ -30,48 +36,49 @@
             }
           },
           "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:jest",
-          "options": {
-            "tsConfig": "projects/anedomansky/ngx-form-group/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
-          }
         }
       }
     },
-    "ngx-form-group-test-app": {
+    "test-app": {
+      "root": "projects/test-app",
+      "sourceRoot": "projects/test-app/src",
+      "prefix": "app",
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
+          "changeDetection": "OnPush",
           "standalone": true
         },
         "@schematics/angular:directive": {
           "standalone": true
-        },
-        "@schematics/angular:pipe": {
-          "standalone": true
         }
       },
-      "root": "projects/ngx-form-group-test-app",
-      "sourceRoot": "projects/ngx-form-group-test-app/src",
-      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
-            "outputPath": "dist/ngx-form-group-test-app",
-            "index": "projects/ngx-form-group-test-app/src/index.html",
-            "main": "projects/ngx-form-group-test-app/src/main.ts",
-            "polyfills": ["zone.js"],
-            "tsConfig": "projects/ngx-form-group-test-app/tsconfig.app.json",
+            "outputPath": "dist/test-app",
+            "index": "projects/test-app/src/index.html",
+            "main": "projects/test-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/test-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/ngx-form-group-test-app/src/favicon.ico",
-              "projects/ngx-form-group-test-app/src/assets"
+              "projects/test-app/src/favicon.ico",
+              "projects/test-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "dist/anedomansky/ngx-form-group/assets",
+                "output": "assets"
+              }
             ],
-            "styles": ["projects/ngx-form-group-test-app/src/styles.scss"],
+            "styles": [
+              "projects/test-app/src/styles.scss",
+              "dist/anedomansky/ngx-form-group/styles/index.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +87,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "1500kb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -88,12 +95,16 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "aot": true,
+              "buildOptimizer": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "optimization": true
             },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
@@ -105,26 +116,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ngx-form-group-test-app:build:production"
+              "buildTarget": "test-app:build:production"
             },
             "development": {
-              "browserTarget": "ngx-form-group-test-app:build:development"
+              "buildTarget": "test-app:build:development"
             }
           },
           "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ngx-form-group-test-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:jest",
-          "options": {
-            "tsConfig": "tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
-          }
         }
       }
     }

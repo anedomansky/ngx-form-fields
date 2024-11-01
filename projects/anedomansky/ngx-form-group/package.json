@@ -1,12 +1,15 @@
 {
   "name": "@anedomansky/ngx-form-group",
   "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0"
+  "description": "An Angular Library",
+  "scripts": {
+    "build": "ng build @anedomansky/ngx-form-group",
+    "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "tslib": "^2.3.0"
+  "exports": {
+    ".": {
+      "sass": "./styles/index.scss"
+    }
   },
   "sideEffects": false
 }

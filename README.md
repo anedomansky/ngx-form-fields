@@ -1,27 +1,19 @@
-# NgxFormGroup
+# Ngx-form-group workspace
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Run the application
 
-## Development server
+To serve the application, you should run `npm run start`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Lint the applciation
 
-## Code scaffolding
+You can run `npm run lint` for linting and `npm run lint:fix` inside the workspace folder to run the linter checks.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Test the application
 
-## Build
+Use `npm run test:lib` to test the library.
+`npm run test:app` runs all unit tests of the application.
+Finally, you can use `npm run test` in order to run the tests for both the library and the application.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Structure of the workspace
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The workspace consists of one Angular library and one Angular application.

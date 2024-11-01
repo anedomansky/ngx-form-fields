@@ -1,11 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "@anedomansky/ngx-form-group": [
-        "dist/anedomansky/ngx-form-group"
-      ]
-    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -20,19 +15,30 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
+    "target": "es2022",
+    "module": "es2022",
     "lib": [
-      "ES2022",
+      "es2022",
       "dom"
     ],
-    "strictPropertyInitialization": false
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "jest"
+    ],
+    "esModuleInterop": true,
+    "paths": {
+      "@anedomansky/ngx-form-group": [
+        "dist/anedomansky/ngx-form-group"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictNullChecks": true
   }
 }
