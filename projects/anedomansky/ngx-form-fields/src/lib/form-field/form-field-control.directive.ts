@@ -2,7 +2,6 @@ import {
   Directive,
   inject,
   Injector,
-  input,
   OnDestroy,
   OnInit,
   signal,
@@ -33,8 +32,6 @@ export class FormFieldControlDirective
 {
   private controlContainer = inject(ControlContainer);
 
-  name = input.required<string>();
-
   control = new FormControl();
 
   private injector = inject(Injector);
@@ -62,7 +59,7 @@ export class FormFieldControlDirective
       });
       const parentForm = this.controlContainer.control as FormGroup;
       this.control.setParent(parentForm);
-      parentForm.addControl(this.name(), this.control);
+      parentForm.addControl(ngControl.name, this.control);
       console.log(parentForm);
     }
   }

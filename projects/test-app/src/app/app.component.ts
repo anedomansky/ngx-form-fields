@@ -23,7 +23,7 @@ export class AppComponent {
 
   fields: FormFieldConfig<string>[] = [
     { key: 'name.first', type: 'text', required: true, defaultValue: 'a' },
-    { key: 'name.last', type: 'text', required: true, defaultValue: 'b' },
+    { key: 'name.last', type: 'text', readonly: true, defaultValue: 'b' },
     { key: 'street', type: 'text', defaultValue: 'c', disabled: true },
     { key: 'city', type: 'text', required: true, defaultValue: 'd' },
   ];
@@ -31,5 +31,7 @@ export class AppComponent {
   onSubmit(form: NgForm): void {
     console.log(this.fields);
     console.log(form.value);
+    console.log(form.valid);
+    console.log(form.form.getRawValue());
   }
 }

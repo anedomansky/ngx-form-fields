@@ -18,7 +18,7 @@ import { FormFieldControlDirective } from './form-field-control.directive';
   templateUrl: './form-field.component.html',
   styleUrl: './form-field.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [{ directive: FormFieldControlDirective, inputs: ['name'] }],
+  hostDirectives: [FormFieldControlDirective],
 })
 export class FormFieldComponent implements OnInit {
   protected formFieldControlDirective = inject(FormFieldControlDirective);
