@@ -5,8 +5,8 @@
       "path": "../"
     },
     {
-      "name": "ngx-form-group",
-      "path": "../projects/anedomansky/ngx-form-group"
+      "name": "ngx-form-fields",
+      "path": "../projects/anedomansky/ngx-form-fields"
     },
     {
       "name": "test-app",

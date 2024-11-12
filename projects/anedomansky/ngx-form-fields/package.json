@@ -1,9 +1,9 @@
 {
-  "name": "@anedomansky/ngx-form-group",
+  "name": "@anedomansky/ngx-form-fields",
   "version": "0.0.1",
   "description": "An Angular Library",
   "scripts": {
-    "build": "ng build @anedomansky/ngx-form-group",
+    "build": "ng build @anedomansky/ngx-form-fields",
     "prepublishOnly": "npm run build"
   },
   "exports": {

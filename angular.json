@@ -6,10 +6,10 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "@anedomansky/ngx-form-group": {
-      "root": "projects/anedomansky/ngx-form-group",
-      "sourceRoot": "projects/anedomansky/ngx-form-group/src",
-      "prefix": "lib",
+    "@anedomansky/ngx-form-fields": {
+      "root": "projects/anedomansky/ngx-form-fields",
+      "sourceRoot": "projects/anedomansky/ngx-form-fields/src",
+      "prefix": "ngx-form",
       "projectType": "library",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,14 +25,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/anedomansky/ngx-form-group/ng-package.json"
+            "project": "projects/anedomansky/ngx-form-fields/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/anedomansky/ngx-form-group/tsconfig.lib.prod.json"
+              "tsConfig": "projects/anedomansky/ngx-form-fields/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/anedomansky/ngx-form-group/tsconfig.lib.json"
+              "tsConfig": "projects/anedomansky/ngx-form-fields/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -61,9 +61,7 @@
             "outputPath": "dist/test-app",
             "index": "projects/test-app/src/index.html",
             "main": "projects/test-app/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/test-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -71,13 +69,13 @@
               "projects/test-app/src/assets",
               {
                 "glob": "**/*",
-                "input": "dist/anedomansky/ngx-form-group/assets",
+                "input": "dist/anedomansky/ngx-form-fields/assets",
                 "output": "assets"
               }
             ],
             "styles": [
               "projects/test-app/src/styles.scss",
-              "dist/anedomansky/ngx-form-group/styles/index.scss"
+              "dist/anedomansky/ngx-form-fields/styles/index.scss"
             ],
             "scripts": []
           },

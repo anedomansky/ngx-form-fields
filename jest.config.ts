@@ -21,7 +21,7 @@ const jestConfig: Config = {
     '^rxjs(/operators$)?$':
       '<rootDir>/node_modules/rxjs/dist/bundles/rxjs.umd.js',
     '^flat$': '<rootDir>/node_modules/flat/index.js',
-    '^@anedomansky/ngx-form-group': '<rootDir>/dist/anedomansky/ngx-form-group/fesm2022/anedomansky-ngx-form-group.mjs',
+    '^@anedomansky/ngx-form-fields': '<rootDir>/dist/anedomansky/ngx-form-fields/fesm2022/anedomansky-ngx-form-fields.mjs',
   },
   transform: {
     '^.+\\.(ts|js|html|svg)$': [

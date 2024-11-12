@@ -1,13 +1,13 @@
-import eslint from '@eslint/js';
-import angular from 'angular-eslint';
-import compat from 'eslint-plugin-compat';
-import * as importPlugin from 'eslint-plugin-import';
-import jest from 'eslint-plugin-jest';
-import prettierRecommended from 'eslint-plugin-prettier/recommended';
-import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import testingLibrary from 'eslint-plugin-testing-library';
-import unusedImports from 'eslint-plugin-unused-imports';
-import tseslint from 'typescript-eslint';
+import eslint from "@eslint/js";
+import angular from "angular-eslint";
+import compat from "eslint-plugin-compat";
+import * as importPlugin from "eslint-plugin-import";
+import jest from "eslint-plugin-jest";
+import prettierRecommended from "eslint-plugin-prettier/recommended";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import testingLibrary from "eslint-plugin-testing-library";
+import unusedImports from "eslint-plugin-unused-imports";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
@@ -20,18 +20,18 @@ export default tseslint.config(
   },
   {
     ignores: [
-      '**/dist/**/*',
-      '**/coverage/**/*',
-      '**/projects/**/*.d.ts',
-      '**/jest-reports/**/*',
-      '**/report/**/*',
-      '**/test-results/**/*',
-      '**/node_modules/**/*',
-      '**/src/gen/**/*',
-      '**/.angular/**/*',
-      '**/*.js',
-      '**/*.mjs',
-      '**/*.json',
+      "**/dist/**/*",
+      "**/coverage/**/*",
+      "**/projects/**/*.d.ts",
+      "**/jest-reports/**/*",
+      "**/report/**/*",
+      "**/test-results/**/*",
+      "**/node_modules/**/*",
+      "**/src/gen/**/*",
+      "**/.angular/**/*",
+      "**/*.js",
+      "**/*.mjs",
+      "**/*.json",
     ],
   },
   {
@@ -57,109 +57,109 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/*.html'],
+    files: ["**/*.html"],
     extends: [
       ...angular.configs.templateRecommended,
       ...angular.configs.templateAccessibility,
       prettierRecommended,
     ],
     rules: {
-      '@angular-eslint/template/prefer-control-flow': 'warn',
-      '@angular-eslint/template/alt-text': 'warn',
-      '@angular-eslint/template/elements-content': 'warn',
-      '@angular-eslint/template/label-has-associated-control': 'warn',
-      '@angular-eslint/template/no-positive-tabindex': 'warn',
-      '@angular-eslint/template/table-scope': 'warn',
-      '@angular-eslint/template/valid-aria': 'warn',
-      '@angular-eslint/template/click-events-have-key-events': 'warn',
-      '@angular-eslint/template/mouse-events-have-key-events': 'warn',
-      '@angular-eslint/template/no-autofocus': 'warn',
-      '@angular-eslint/template/no-distracting-elements': 'warn',
-      '@angular-eslint/template/interactive-supports-focus': 'warn',
-      'prettier/prettier': [
-        'error',
+      "@angular-eslint/template/prefer-control-flow": "warn",
+      "@angular-eslint/template/alt-text": "warn",
+      "@angular-eslint/template/elements-content": "warn",
+      "@angular-eslint/template/label-has-associated-control": "warn",
+      "@angular-eslint/template/no-positive-tabindex": "warn",
+      "@angular-eslint/template/table-scope": "warn",
+      "@angular-eslint/template/valid-aria": "warn",
+      "@angular-eslint/template/click-events-have-key-events": "warn",
+      "@angular-eslint/template/mouse-events-have-key-events": "warn",
+      "@angular-eslint/template/no-autofocus": "warn",
+      "@angular-eslint/template/no-distracting-elements": "warn",
+      "@angular-eslint/template/interactive-supports-focus": "warn",
+      "prettier/prettier": [
+        "error",
         {
           singleQuote: false,
           useTabs: false,
           tabWidth: 2,
           semi: true,
           bracketSpacing: true,
-          endOfLine: 'auto',
-          parser: 'angular',
+          endOfLine: "auto",
+          parser: "angular",
         },
       ],
     },
   },
   {
-    files: ['**/*.ts'],
+    files: ["**/*.ts"],
     processor: angular.processInlineTemplates,
     plugins: {
-      'simple-import-sort': simpleImportSort,
-      'unused-imports': unusedImports,
+      "simple-import-sort": simpleImportSort,
+      "unused-imports": unusedImports,
     },
     settings: {
-      'import/resolver': {
+      "import/resolver": {
         typescript: true,
         node: true,
       },
     },
     extends: [
       eslint.configs.recommended,
-      ...tseslint.configs.strict,
+      ...tseslint.configs.strictTypeChecked,
       ...angular.configs.tsRecommended,
-      compat.configs['flat/recommended'],
+      compat.configs["flat/recommended"],
       importPlugin.flatConfigs.recommended,
       prettierRecommended,
     ],
     rules: {
       "lines-between-class-members": ["warn", "always"],
-      'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error',
-      'import/first': 'error',
-      'import/newline-after-import': 'error',
-      'import/no-duplicates': 'error',
-      '@angular-eslint/component-class-suffix': [
-        'error',
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/first": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error",
+      "@angular-eslint/component-class-suffix": [
+        "error",
         {
-          suffixes: ['Component'],
+          suffixes: ["Component"],
         },
       ],
-      '@angular-eslint/no-host-metadata-property': 'off',
-      '@typescript-eslint/await-thenable': 'error',
-      '@typescript-eslint/explicit-module-boundary-types': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-extraneous-class': [
-        'error',
+      "@angular-eslint/no-host-metadata-property": "off",
+      "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/explicit-module-boundary-types": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-extraneous-class": [
+        "error",
         { allowWithDecorator: true },
       ],
-      'unused-imports/no-unused-imports': 'error',
-      'unused-imports/no-unused-vars': [
-        'warn',
+      "unused-imports/no-unused-imports": "error",
+      "unused-imports/no-unused-vars": [
+        "warn",
         {
-          vars: 'all',
-          varsIgnorePattern: '^_',
-          args: 'after-used',
-          argsIgnorePattern: '^_',
+          vars: "all",
+          varsIgnorePattern: "^_",
+          args: "after-used",
+          argsIgnorePattern: "^_",
         },
       ],
-      'prettier/prettier': [
-        'error',
+      "prettier/prettier": [
+        "error",
         {
           singleQuote: true,
           useTabs: false,
           tabWidth: 2,
           semi: true,
           bracketSpacing: true,
-          endOfLine: 'auto',
+          endOfLine: "auto",
         },
       ],
-      'no-restricted-syntax': [
-        'error',
+      "no-restricted-syntax": [
+        "error",
         {
-          selector: 'TSEnumDeclaration',
+          selector: "TSEnumDeclaration",
           message:
-            'Do not use enum at all. See: https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls',
+            "Do not use enum at all. See: https://www.typescriptlang.org/docs/handbook/enums.html#const-enum-pitfalls",
         },
       ],
     },

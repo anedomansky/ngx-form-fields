@@ -1,4 +1,4 @@
-# Ngx-form-group workspace
+# Ngx-form-fields workspace
 
 ## Run the application
 

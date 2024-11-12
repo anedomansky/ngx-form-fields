@@ -29,8 +29,8 @@
     ],
     "esModuleInterop": true,
     "paths": {
-      "@anedomansky/ngx-form-group": [
-        "dist/anedomansky/ngx-form-group"
+      "@anedomansky/ngx-form-fields": [
+        "dist/anedomansky/ngx-form-fields"
       ]
     }
   },

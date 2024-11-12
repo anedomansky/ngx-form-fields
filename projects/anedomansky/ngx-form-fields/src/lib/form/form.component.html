@@ -1,0 +1,13 @@
+<form #f="ngForm" (ngSubmit)="onSubmit.emit(f)">
+  {{ f.value | json }}
+  @for (field of fields(); track field) {
+    <ngx-form-field
+      [name]="field.key"
+      [field]="field"
+      [ngModel]="field.defaultValue"
+      [required]="!!field.required"
+      [disabled]="!!field.disabled"
+    ></ngx-form-field>
+  }
+  <ng-content></ng-content>
+</form>

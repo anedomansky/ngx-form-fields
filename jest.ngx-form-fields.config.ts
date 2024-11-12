@@ -4,8 +4,8 @@ import baseConfig from './jest.config';
 
 const config: Config = {
   ...baseConfig,
-  roots: ['<rootDir>/projects/anedomansky/ngx-form-group'],
-  displayName: '@anedomansky/ngx-form-group',
+  roots: ['<rootDir>/projects/anedomansky/ngx-form-fields'],
+  displayName: '@anedomansky/ngx-form-fields',
 };
 
 export default config;

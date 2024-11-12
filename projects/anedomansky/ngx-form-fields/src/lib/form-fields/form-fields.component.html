@@ -1,0 +1,9 @@
+@for (field of fields(); track field; let i = $index) {
+  <ngx-form-field
+    [field]="field"
+    [name]="field.key"
+    [ngModel]="field.defaultValue"
+    [required]="!!field.required"
+    [disabled]="!!field.disabled"
+  ></ngx-form-field>
+}

@@ -1,5 +1,5 @@
 {
-  "name": "ngx-form-group",
+  "name": "ngx-form-fields",
   "version": "0.0.0",
   "scripts": {
     "lint": "eslint ./projects",
@@ -8,10 +8,10 @@
     "test:coverage": "npm run test:esm -- --silent --collectCoverage",
     "test:esm": "node --experimental-vm-modules --no-warnings ./node_modules/jest/bin/jest.js",
     "test:local": "npm run test:esm",
-    "build:lib:ngx-form-group": "ng build @anedomansky/ngx-form-group --configuration=production",
-    "build:lib:ngx-form-group:watch": "ng build @anedomansky/ngx-form-group --configuration development --watch",
-    "test:lib:ngx-form-group": "npm run test:esm -- -c=jest.ngx-form-group.config.ts --silent",
-    "test:lib:ngx-form-group:local": "npm run test:esm -- -c=jest.ngx-form-group.config.ts",
+    "build:lib:ngx-form-fields": "ng build @anedomansky/ngx-form-fields --configuration=production",
+    "build:lib:ngx-form-fields:watch": "ng build @anedomansky/ngx-form-fields --configuration development --watch",
+    "test:lib:ngx-form-fields": "npm run test:esm -- -c=jest.ngx-form-fields.config.ts --silent",
+    "test:lib:ngx-form-fields:local": "npm run test:esm -- -c=jest.ngx-form-fields.config.ts",
     "start:app:test-app": "ng serve test-app",
     "build:app:test-app": "ng build test-app",
     "test:app:test-app": "npm run test:esm -- -c=jest.test-app.config.ts --silent",
