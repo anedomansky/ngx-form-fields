@@ -1,12 +1,10 @@
-<form #f="ngForm" (ngSubmit)="onSubmit.emit(f)">
-  {{ f.value | json }}
-  @for (field of fields(); track field) {
+<div [ngModelGroup]="group().name">
+  <div>{{ group().label }}</div>
+  @for (field of group().fields; track field) {
     @if (field.type === "group") {
       <ngx-form-group [group]="field"></ngx-form-group>
     } @else {
       <ngx-form-field [field]="field"></ngx-form-field>
     }
   }
-
-  <ng-content></ng-content>
-</form>
+</div>

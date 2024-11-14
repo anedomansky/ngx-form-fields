@@ -1,9 +1,7 @@
-@for (field of fields(); track field; let i = $index) {
-  <ngx-form-field
-    [field]="field"
-    [name]="field.key"
-    [ngModel]="field.defaultValue"
-    [required]="!!field.required"
-    [disabled]="!!field.disabled"
-  ></ngx-form-field>
+@for (field of fields(); track field) {
+  @if (field.type === "group") {
+    <ngx-form-group [group]="field"></ngx-form-group>
+  } @else {
+    <ngx-form-field [field]="field"></ngx-form-field>
+  }
 }

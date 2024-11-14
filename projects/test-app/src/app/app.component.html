@@ -1,12 +1,9 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   {{ f.value | json }}
   <ngx-form-fields [fields]="fields"></ngx-form-fields>
-  <!-- <input type="text" name="first" [(ngModel)]="model.name.first" />
-  <input type="text" name="street" [(ngModel)]="model.street" />
-  <input type="text" name="city" [(ngModel)]="model.city" /> -->
   <button type="submit">Submit</button>
   <button type="reset">Reset</button>
 </form>
-<!-- <ngx-form [fields]="fields" (onSubmit)="onSubmit($event)">
+<ngx-form [fields]="fields" (onSubmit)="onSubmit($event)">
   <button type="submit">Submit</button>
-</ngx-form> -->
+</ngx-form>

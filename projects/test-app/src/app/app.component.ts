@@ -1,7 +1,8 @@
 import {
   FormComponent,
-  FormFieldConfig,
+  FormField,
   FormFieldsComponent,
+  FormFieldTypes,
 } from '@anedomansky/ngx-form-fields';
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
@@ -15,23 +16,89 @@ import { FormsModule, NgForm } from '@angular/forms';
   imports: [FormComponent, FormsModule, FormFieldsComponent, JsonPipe],
 })
 export class AppComponent {
-  model: any = {
-    name: { first: 'a', last: 'blub' },
-    street: 'c',
-    city: 'd',
-  };
-
-  fields: FormFieldConfig<string>[] = [
-    { key: 'name.first', type: 'text', required: true, defaultValue: 'a' },
-    { key: 'name.last', type: 'text', readonly: true, defaultValue: 'b' },
-    { key: 'street', type: 'text', defaultValue: 'c', disabled: true },
-    { key: 'city', type: 'text', required: true, defaultValue: 'd' },
+  fields: FormField<string>[] = [
+    {
+      name: 'name',
+      type: 'group',
+      label: 'Name',
+      fields: [
+        {
+          name: 'first',
+          type: FormFieldTypes.TEXT,
+          label: 'First name',
+          required: true,
+          defaultValue: 'a',
+        },
+        {
+          name: 'last',
+          type: FormFieldTypes.TEXT,
+          label: 'Last name',
+          readonly: true,
+          defaultValue: 'b',
+        },
+      ],
+    },
+    {
+      name: 'address',
+      type: 'group',
+      label: 'Address',
+      fields: [
+        {
+          name: 'street',
+          type: FormFieldTypes.TEXT,
+          label: 'Street',
+          defaultValue: 'c',
+          disabled: true,
+        },
+        {
+          name: 'plz',
+          type: FormFieldTypes.TEXT,
+          label: 'Postal code',
+          required: true,
+          defaultValue: 'd',
+        },
+        {
+          name: 'city',
+          type: FormFieldTypes.TEXT,
+          label: 'City',
+          required: true,
+          defaultValue: 'e',
+        },
+      ],
+    },
+    {
+      name: 'contact',
+      type: 'group',
+      label: 'Contact',
+      fields: [
+        {
+          name: 'mail',
+          type: FormFieldTypes.TEXT,
+          label: 'Email',
+          required: true,
+          defaultValue: 'f',
+        },
+        {
+          name: 'tel',
+          type: FormFieldTypes.TEXT,
+          label: 'Telephone',
+          required: true,
+          defaultValue: 'g',
+        },
+      ],
+    },
+    {
+      name: 'extra',
+      type: FormFieldTypes.TEXT,
+      label: 'Extra',
+      defaultValue: 'h',
+    },
   ];
 
   onSubmit(form: NgForm): void {
     console.log(this.fields);
     console.log(form.value);
-    console.log(form.valid);
+    console.log('form.valid:', form.valid);
     console.log(form.form.getRawValue());
   }
 }

@@ -1,33 +1,18 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-  OnInit,
-  signal,
-} from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { FormFieldConfig } from '../shared/form-field.model';
-import { FormFieldControlDirective } from './form-field-control.directive';
+import { Field } from '../shared/form-field.model';
+import { formViewProvider } from '../shared/form-view.provider';
 
 @Component({
   selector: 'ngx-form-field',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [FormsModule],
   templateUrl: './form-field.component.html',
   styleUrl: './form-field.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  hostDirectives: [FormFieldControlDirective],
+  viewProviders: [formViewProvider],
 })
-export class FormFieldComponent implements OnInit {
-  protected formFieldControlDirective = inject(FormFieldControlDirective);
-
-  field = input.required<FormFieldConfig>();
-
-  value = signal<unknown>(null);
-
-  ngOnInit(): void {
-    this.value.set(this.field().defaultValue);
-  }
+export class FormFieldComponent {
+  field = input.required<Field>();
 }

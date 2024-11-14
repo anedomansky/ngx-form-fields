@@ -1,5 +1,8 @@
 <input
   [type]="field().type"
-  [formControl]="formFieldControlDirective.control"
   [readOnly]="field().readonly"
+  [name]="field().name"
+  [ngModel]="field().defaultValue"
+  [required]="!!field().required"
+  [disabled]="!!field().disabled"
 />

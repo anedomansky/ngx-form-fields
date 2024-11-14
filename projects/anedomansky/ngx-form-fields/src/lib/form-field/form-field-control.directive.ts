@@ -32,13 +32,13 @@ export class FormFieldControlDirective
 {
   private controlContainer = inject(ControlContainer);
 
-  control = new FormControl();
-
   private injector = inject(Injector);
 
   private subscription?: Subscription;
 
   private value = signal<unknown>(null);
+
+  control = new FormControl();
 
   onChange: (value: string) => void = noop;
 
@@ -58,9 +58,8 @@ export class FormFieldControlDirective
         }
       });
       const parentForm = this.controlContainer.control as FormGroup;
-      this.control.setParent(parentForm);
       parentForm.addControl(ngControl.name, this.control);
-      console.log(parentForm);
+      console.log(parentForm.controls);
     }
   }
 

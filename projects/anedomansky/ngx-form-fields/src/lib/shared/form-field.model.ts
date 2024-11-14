@@ -1,20 +1,43 @@
-export type FormFieldType =
-  | 'text'
-  | 'number'
-  | 'checkbox'
-  | 'radio'
-  | 'password'
-  | 'date'
-  | 'email';
+export const FormFieldTypes = {
+  TEXT: 'text',
+  TEXTAREA: 'textarea',
+  NUMBER: 'number',
+  CHECKBOX: 'checkbox',
+  RADIO: 'radio',
+  DATE: 'date',
+  PASSWORD: 'password',
+  EMAIL: 'email',
+  TEL: 'tel',
+} as const;
 
-export type FormFieldConfig<T = unknown> = {
-  /**
-   * Can be a nested key like "first.second.third.mycontrol"
-   */
-  key: string;
-  type: FormFieldType;
+type FormFieldTypesTypeValue = typeof FormFieldTypes;
+export type FormFieldType =
+  FormFieldTypesTypeValue[keyof FormFieldTypesTypeValue];
+
+export type Field<T = unknown> = {
+  name: string;
+  label: string;
+  type:
+    | 'text'
+    | 'textarea'
+    | 'number'
+    | 'checkbox'
+    | 'radio'
+    | 'date'
+    | 'password'
+    | 'email'
+    | 'tel';
   disabled?: boolean;
   readonly?: boolean;
   required?: boolean;
   defaultValue: T;
 };
+
+export type Group<T = unknown> = {
+  name: string;
+  label: string;
+  type: 'group';
+  fields: FormField<T>[];
+};
+
+export type FormField<T = unknown> = Field<T> | Group<T>;

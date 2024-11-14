@@ -2,14 +2,14 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { FormFieldConfig } from '../shared/form-field.model';
+import { FormGroupComponent } from '../form-group/form-group.component';
+import { FormField } from '../shared/form-field.model';
 import { FormFieldsOptions } from '../shared/form-fields-options';
-import { FormModel } from '../shared/form-model.model';
 
 @Component({
   selector: 'ngx-form-fields',
   standalone: true,
-  imports: [FormFieldComponent, FormsModule],
+  imports: [FormFieldComponent, FormsModule, FormGroupComponent],
   templateUrl: './form-fields.component.html',
   styleUrl: './form-fields.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -18,9 +18,7 @@ import { FormModel } from '../shared/form-model.model';
   },
 })
 export class FormFieldsComponent {
-  model = input<FormModel>();
-
-  fields = input.required<FormFieldConfig[]>();
+  fields = input.required<FormField[]>();
 
   options = input<FormFieldsOptions>();
 }
