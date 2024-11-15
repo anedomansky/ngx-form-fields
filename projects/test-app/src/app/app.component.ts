@@ -5,7 +5,7 @@ import {
   FormFieldTypes,
 } from '@anedomansky/ngx-form-fields';
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, viewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
@@ -15,7 +15,9 @@ import { FormsModule, NgForm } from '@angular/forms';
   standalone: true,
   imports: [FormComponent, FormsModule, FormFieldsComponent, JsonPipe],
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+  protected form = viewChild<NgForm>('f');
+
   fields: FormField<string>[] = [
     {
       name: 'name',
@@ -94,6 +96,12 @@ export class AppComponent {
       defaultValue: 'h',
     },
   ];
+
+  ngAfterViewInit(): void {
+    this.form()?.valueChanges?.subscribe((value) => {
+      console.log('valueChanges:', value);
+    });
+  }
 
   onSubmit(form: NgForm): void {
     console.log(this.fields);
