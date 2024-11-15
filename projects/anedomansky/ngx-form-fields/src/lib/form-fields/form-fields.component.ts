@@ -3,8 +3,8 @@ import { FormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { FormGroupComponent } from '../form-group/form-group.component';
-import { FormField } from '../shared/form-field.model';
-import { FormFieldsOptions } from '../shared/form-fields-options';
+import { FormField } from '../shared/models/form-field.model';
+import { FormFieldsOptions } from '../shared/models/form-fields-options';
 
 @Component({
   selector: 'ngx-form-fields',

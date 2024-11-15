@@ -9,7 +9,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 import { FormFieldComponent } from '../form-field/form-field.component';
 import { FormGroupComponent } from '../form-group/form-group.component';
-import { FormField } from '../shared/form-field.model';
+import { FormField } from '../shared/models/form-field.model';
 
 @Component({
   selector: 'ngx-form',

@@ -5,4 +5,10 @@
   [ngModel]="field().defaultValue"
   [required]="!!field().required"
   [disabled]="!!field().disabled"
+  [validators]="field().validators ?? []"
+  #control="ngModel"
 />
+@if (control.invalid && control.touched) {
+  {{ control.hasError("alphabeticalName") && "Error: alphabeticalName" }}
+}
+<!-- TODO: Create ValidationMessage pipe https://timdeschryver.dev/blog/a-practical-guide-to-angular-template-driven-forms#configuring-validation-messages -->

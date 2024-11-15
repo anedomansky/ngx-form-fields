@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { FormFieldComponent } from '../form-field/form-field.component';
-import { Group } from '../shared/form-field.model';
-import { formViewProvider } from '../shared/form-view.provider';
+import { Group } from '../shared/models/form-field.model';
+import { formViewProvider } from '../shared/providers/form-view.provider';
 
 @Component({
   selector: 'ngx-form-group',

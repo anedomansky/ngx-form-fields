@@ -6,7 +6,26 @@ import {
 } from '@anedomansky/ngx-form-fields';
 import { JsonPipe } from '@angular/common';
 import { AfterViewInit, Component, viewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import {
+  AbstractControl,
+  FormsModule,
+  NgForm,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
+
+function alphabeticalName(): ValidatorFn {
+  return (control: AbstractControl<string>): ValidationErrors | null => {
+    const regex = /.*[0-9]+.*/;
+    if (regex.test(control.value)) {
+      return {
+        alphabeticalName: true,
+      };
+    }
+
+    return null;
+  };
+}
 
 @Component({
   selector: 'app-root',
@@ -30,6 +49,7 @@ export class AppComponent implements AfterViewInit {
           label: 'First name',
           required: true,
           defaultValue: 'a',
+          validators: [alphabeticalName()],
         },
         {
           name: 'last',
@@ -37,6 +57,7 @@ export class AppComponent implements AfterViewInit {
           label: 'Last name',
           readonly: true,
           defaultValue: 'b',
+          validators: [alphabeticalName()],
         },
       ],
     },

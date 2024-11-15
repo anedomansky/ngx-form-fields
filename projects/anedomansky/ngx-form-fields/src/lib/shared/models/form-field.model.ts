@@ -1,3 +1,5 @@
+import { AsyncValidatorFn, ValidatorFn } from '@angular/forms';
+
 export const FormFieldTypes = {
   TEXT: 'text',
   TEXTAREA: 'textarea',
@@ -31,6 +33,8 @@ export type Field<T = unknown> = {
   readonly?: boolean;
   required?: boolean;
   defaultValue: T;
+  validators?: ValidatorFn[];
+  asyncValidators?: AsyncValidatorFn[];
 };
 
 export type Group<T = unknown> = {
@@ -38,6 +42,8 @@ export type Group<T = unknown> = {
   label: string;
   type: 'group';
   fields: FormField<T>[];
+  validators?: ValidatorFn[];
+  asyncValidators?: AsyncValidatorFn[];
 };
 
 export type FormField<T = unknown> = Field<T> | Group<T>;
