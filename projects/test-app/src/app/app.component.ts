@@ -19,7 +19,20 @@ function alphabeticalName(): ValidatorFn {
     const regex = /.*[0-9]+.*/;
     if (regex.test(control.value)) {
       return {
-        alphabeticalName: true,
+        alphabeticalName: 'The name must not include numbers',
+      };
+    }
+
+    return null;
+  };
+}
+
+function alphabeticalName2(): ValidatorFn {
+  return (control: AbstractControl<string>): ValidationErrors | null => {
+    const regex = /^abc/;
+    if (regex.test(control.value)) {
+      return {
+        alphabeticalName2: 'The name must not start like this',
       };
     }
 
@@ -49,7 +62,7 @@ export class AppComponent implements AfterViewInit {
           label: 'First name',
           required: true,
           defaultValue: 'a',
-          validators: [alphabeticalName()],
+          validators: [alphabeticalName(), alphabeticalName2()],
         },
         {
           name: 'last',

@@ -1,14 +1,22 @@
-<input
-  [type]="field().type"
-  [readOnly]="field().readonly"
-  [name]="field().name"
-  [ngModel]="field().defaultValue"
-  [required]="!!field().required"
-  [disabled]="!!field().disabled"
-  [validators]="field().validators ?? []"
-  #control="ngModel"
-/>
-@if (control.invalid && control.touched) {
-  {{ control.hasError("alphabeticalName") && "Error: alphabeticalName" }}
-}
-<!-- TODO: Create ValidationMessage pipe https://timdeschryver.dev/blog/a-practical-guide-to-angular-template-driven-forms#configuring-validation-messages -->
+<div>
+  <label [for]="field().name">{{ field().label }}</label>
+  <input
+    [id]="field().name"
+    [type]="field().type"
+    [readOnly]="field().readonly"
+    [name]="field().name"
+    [ngModel]="field().defaultValue"
+    [required]="!!field().required"
+    [disabled]="!!field().disabled"
+    [validators]="field().validators ?? []"
+    #control="ngModel"
+  />
+  <div [hidden]="control.valid && !control.touched">
+    @if (control.errors | validation; as messages) {
+      @for (message of messages; track message) {
+        <span>{{ message }}</span
+        ><br /><br />
+      }
+    }
+  </div>
+</div>
