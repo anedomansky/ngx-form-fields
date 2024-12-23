@@ -1,6 +1,9 @@
 <div>
-  <label [for]="field().name">{{ field().label }}</label>
+  <label [class]="field().styleClassLabel" [for]="field().name">{{
+    field().label
+  }}</label>
   <input
+    [class]="field().styleClassInput"
     [id]="field().name"
     [type]="field().type"
     [readOnly]="field().readonly"
@@ -11,12 +14,15 @@
     [validators]="field().validators ?? []"
     #control="ngModel"
   />
-  <div [hidden]="control.valid && !control.touched">
-    @if (control.errors | validation; as messages) {
-      @for (message of messages; track message) {
-        <span>{{ message }}</span
-        ><br /><br />
-      }
+</div>
+<div
+  [class]="field().syleClassErrors"
+  [hidden]="control.valid && !control.touched"
+>
+  @if (control.errors | validation; as messages) {
+    @for (message of messages; track message) {
+      <span>{{ message }}</span
+      ><br /><br />
     }
-  </div>
+  }
 </div>

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Field } from '../shared/models/form-field.model';
@@ -14,6 +19,11 @@ import { ValidatorsDirective } from '../validation/validators.directive';
   styleUrl: './form-field.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [formViewProvider],
+  host: {
+    class: 'ngx-form-field',
+    '[class]': 'field().styleClass',
+  },
+  encapsulation: ViewEncapsulation.None,
 })
 export class FormFieldComponent {
   field = input.required<Field>();

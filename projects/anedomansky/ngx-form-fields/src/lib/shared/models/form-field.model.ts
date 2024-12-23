@@ -35,6 +35,10 @@ export type Field<T = unknown> = {
   defaultValue: T;
   validators?: ValidatorFn[];
   asyncValidators?: AsyncValidatorFn[];
+  styleClass?: string;
+  styleClassLabel?: string;
+  styleClassInput?: string;
+  syleClassErrors?: string;
 };
 
 export type Group<T = unknown> = {

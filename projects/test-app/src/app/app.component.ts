@@ -5,7 +5,12 @@ import {
   FormFieldTypes,
 } from '@anedomansky/ngx-form-fields';
 import { JsonPipe } from '@angular/common';
-import { AfterViewInit, Component, viewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  viewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   AbstractControl,
   FormsModule,
@@ -46,6 +51,7 @@ function alphabeticalName2(): ValidatorFn {
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [FormComponent, FormsModule, FormFieldsComponent, JsonPipe],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements AfterViewInit {
   protected form = viewChild<NgForm>('f');
@@ -63,6 +69,10 @@ export class AppComponent implements AfterViewInit {
           required: true,
           defaultValue: 'a',
           validators: [alphabeticalName(), alphabeticalName2()],
+          styleClass: 'test-field',
+          styleClassLabel: 'test-label',
+          styleClassInput: 'test-input',
+          syleClassErrors: 'test-errors',
         },
         {
           name: 'last',
@@ -109,7 +119,7 @@ export class AppComponent implements AfterViewInit {
       fields: [
         {
           name: 'mail',
-          type: FormFieldTypes.TEXT,
+          type: FormFieldTypes.EMAIL,
           label: 'Email',
           required: true,
           defaultValue: 'f',
