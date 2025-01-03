@@ -1,3 +1,59 @@
 .ngx-form-field {
-  display: block;
+  background-color: #ededed;
+  border-block-end: 1px solid #101720;
+  border-start-end-radius: 0.25rem;
+  border-start-start-radius: 0.25rem;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: Roboto, sans-serif;
+  gap: 0.25rem;
+  min-block-size: 50px;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+
+  &:has(.input:hover),
+  &:has(.label:hover) {
+    background-color: #edededa0;
+  }
+
+  &:has(.input:focus) {
+    border-block-end: 2px solid #015cbb;
+  }
+
+  &__label {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .label {
+    &:has(+ .input:disabled) {
+      cursor: not-allowed;
+    }
+
+    &:has(+ .input:focus) {
+      color: #015cbb;
+      transform: translateX(-10%) scale(0.8);
+    }
+  }
+
+  &__input {
+    background-color: #ededed;
+    border: 0;
+    font: inherit;
+  }
+
+  .input {
+    &:focus {
+      color: #015cbb;
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: #edededa0;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
 }

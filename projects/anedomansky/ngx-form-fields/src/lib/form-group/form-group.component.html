@@ -1,5 +1,5 @@
-<div [ngModelGroup]="group().name">
-  <div>{{ group().label }}</div>
+<fieldset [ngModelGroup]="group().name">
+  <legend>{{ group().label }}</legend>
   @for (field of group().fields; track field) {
     @if (field.type === "group") {
       <ngx-form-group [group]="field"></ngx-form-group>
@@ -7,4 +7,4 @@
       <ngx-form-field [field]="field"></ngx-form-field>
     }
   }
-</div>
+</fieldset>

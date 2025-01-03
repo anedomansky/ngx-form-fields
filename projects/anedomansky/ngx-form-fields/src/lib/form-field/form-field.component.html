@@ -1,21 +1,24 @@
-<div>
-  <label [class]="field().styleClassLabel" [for]="field().name">{{
-    field().label
-  }}</label>
-  <input
-    [class]="field().styleClassInput"
-    [id]="field().name"
-    [type]="field().type"
-    [readOnly]="field().readonly"
-    [name]="field().name"
-    [ngModel]="field().defaultValue"
-    [required]="!!field().required"
-    [disabled]="!!field().disabled"
-    [validators]="field().validators ?? []"
-    #control="ngModel"
-  />
-</div>
+<label
+  class="ngx-form-field__label label"
+  [class]="field().styleClassLabel"
+  [for]="field().name"
+  >{{ field().label }}</label
+>
+<input
+  class="ngx-form-field__input input"
+  [class]="field().styleClassInput"
+  [id]="field().name"
+  [type]="field().type"
+  [readOnly]="field().readonly"
+  [name]="field().name"
+  [ngModel]="field().defaultValue"
+  [required]="!!field().required"
+  [disabled]="!!field().disabled"
+  [validators]="field().validators ?? []"
+  #control="ngModel"
+/>
 <div
+  class="ngx-form-field_error-wrapper"
   [class]="field().syleClassErrors"
   [hidden]="control.valid && !control.touched"
 >
