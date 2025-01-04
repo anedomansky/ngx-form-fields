@@ -13,6 +13,9 @@ import { formViewProvider } from '../shared/providers/form-view.provider';
   styleUrl: './form-group.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   viewProviders: [formViewProvider],
+  host: {
+    class: 'ngx-form-group',
+  },
 })
 export class FormGroupComponent {
   group = input.required<Group>();
