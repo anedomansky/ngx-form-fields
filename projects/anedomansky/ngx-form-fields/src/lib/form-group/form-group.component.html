@@ -1,10 +1,15 @@
-<fieldset [ngModelGroup]="group().name" class="ngx-form-group__fieldset">
+<fieldset
+  [ngModelGroup]="group().name"
+  class="ngx-form-group__fieldset fieldset"
+>
   <legend>{{ group().label }}</legend>
-  @for (field of group().fields; track field) {
-    @if (field.type === "group") {
-      <ngx-form-group [group]="field"></ngx-form-group>
-    } @else {
-      <ngx-form-field [field]="field"></ngx-form-field>
+  <div class="fieldset__content">
+    @for (field of group().fields; track field) {
+      @if (field.type === "group") {
+        <ngx-form-group [group]="field"></ngx-form-group>
+      } @else {
+        <ngx-form-field [field]="field"></ngx-form-field>
+      }
     }
-  }
+  </div>
 </fieldset>

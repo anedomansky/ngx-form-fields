@@ -15,5 +15,13 @@
     0 1px 5px 0 rgb(0 0 0 / 12%);
   display: block;
   font-family: Roboto, sans-serif;
+  margin-block-end: 1rem;
   padding: 0.5rem;
+
+  .fieldset {
+    &__content {
+      display: flex;
+      gap: 1rem;
+    }
+  }
 }

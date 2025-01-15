@@ -1,8 +1,10 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="app-form">
   {{ f.value | json }}
   <ngx-form-fields [fields]="fields"></ngx-form-fields>
-  <button type="submit">Submit</button>
-  <button type="reset">Reset</button>
+  <div class="app-form__buttons">
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
 </form>
 <ngx-form [fields]="fields" (onSubmit)="onSubmit($event)">
   <button type="submit">Submit</button>
