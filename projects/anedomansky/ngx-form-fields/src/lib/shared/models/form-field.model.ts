@@ -39,6 +39,7 @@ export type Field<T = unknown> = {
   styleClassLabel?: string;
   styleClassInput?: string;
   syleClassErrors?: string;
+  placeholer?: string;
 };
 
 export type Group<T = unknown> = {

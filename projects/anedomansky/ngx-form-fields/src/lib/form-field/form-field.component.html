@@ -15,6 +15,7 @@
   [required]="!!field().required"
   [disabled]="!!field().disabled"
   [validators]="field().validators ?? []"
+  [placeholder]="field().placeholer ?? ''"
   #control="ngModel"
 />
 <div

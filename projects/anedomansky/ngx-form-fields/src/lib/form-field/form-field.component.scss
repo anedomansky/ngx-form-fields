@@ -4,7 +4,8 @@
   border-start-end-radius: 0.25rem;
   border-start-start-radius: 0.25rem;
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  flex-flow: column;
   font-family: Roboto, sans-serif;
   gap: 0.25rem;
   min-block-size: 50px;
@@ -21,25 +22,45 @@
   }
 
   &__label {
+    cursor: text;
     display: block;
     font-size: 1rem;
+    touch-action: manipulation;
+    transition: all 0.2s;
   }
 
   .label {
+    &:has(+ .input:placeholder-shown) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform: translate(0, 12.5px) scale(1);
+      transform-origin: left bottom;
+      white-space: nowrap;
+    }
+
+    &:has(:not(+ .input:placeholder-shown)) {
+      transform: translate(0, 0) scale(1);
+    }
+
     &:has(+ .input:disabled) {
       cursor: not-allowed;
     }
 
     &:has(+ .input:focus) {
       color: #015cbb;
-      transform: translateX(-10%) scale(0.8);
+      cursor: pointer;
+      transform: translate(0, 0) scale(1);
     }
   }
 
   &__input {
-    background-color: #ededed;
+    appearance: none;
+    background: transparent;
     border: 0;
     font: inherit;
+    font-size: 1rem;
+    touch-action: manipulation;
+    transition: all 0.2s;
   }
 
   .input {
@@ -48,12 +69,17 @@
       outline: 0;
     }
 
-    &:hover {
-      background-color: #edededa0;
-    }
-
     &:disabled {
       cursor: not-allowed;
+    }
+
+    &::placeholder {
+      opacity: 0;
+      transition: inherit;
+    }
+
+    &:focus::placeholder {
+      opacity: 1;
     }
   }
 }
