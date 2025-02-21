@@ -11,6 +11,10 @@ export class ValidationPipe implements PipeTransform {
       return [];
     }
 
+    // TODO: add custom messages for all standard Angular validators
+    console.log(validationErrors);
+    console.log(Object.values(validationErrors));
+
     return Object.values(validationErrors).filter(
       (errorMessage: string | null) => !!errorMessage,
     ) as string[];
